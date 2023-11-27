@@ -37,9 +37,6 @@ const columns: ColumnsType<User> = [
 
 const UsersListContainer = styled.div({
   margin: '5px auto 30px',
-  display: 'block',
-  overflowX: 'auto',
-  whiteSpace: 'nowrap',
 });
 
 export const UsersList = () => {
