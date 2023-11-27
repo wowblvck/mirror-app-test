@@ -1,5 +1,4 @@
 import { createBrowserRouter, Navigate } from 'react-router-dom';
-import { UsersPage } from '@/pages/users';
 import { routes } from '@/shared/config';
 
 const appRouter = createBrowserRouter([
@@ -11,7 +10,10 @@ const appRouter = createBrowserRouter([
         index: true,
       },
       {
-        Component: UsersPage,
+        async lazy() {
+          const { UsersPage } = await import('@/pages/users');
+          return { Component: UsersPage };
+        },
         path: routes.users.base,
       },
     ],
