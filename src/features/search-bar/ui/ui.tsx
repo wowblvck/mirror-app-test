@@ -7,7 +7,9 @@ import { searchModel } from '../model';
 const style = css({
   display: 'flex',
   gap: '10px',
-  '@media (max-width: 540px)': {
+  '@media (max-width: 481px)': {
+    alignItems: 'center',
+    gap: '15px',
     flexDirection: 'column',
   },
 });

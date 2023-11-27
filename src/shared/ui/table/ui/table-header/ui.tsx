@@ -24,10 +24,10 @@ const TableHeaderCell = styled.th({
     transition: 'background-color .2s',
   },
   '&:first-of-type': {
-    borderTopLeftRadius: 12,
+    borderTopLeftRadius: 6,
   },
   '&:last-of-type': {
-    borderTopRightRadius: 12,
+    borderTopRightRadius: 6,
     border: 'none',
     '::before': {
       content: 'none',
@@ -50,6 +50,7 @@ const TableHeaderContent = styled.div({
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'space-between',
+  gap: '10px',
 });
 
 const ChevronDown = styled(ChevronDownIcon)`

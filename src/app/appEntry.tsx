@@ -7,7 +7,11 @@ import appRouter from './appRouter';
 import 'normalize.css';
 
 const globalStyles = css`
-  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&display=swap');
+
+  * {
+    box-sizing: border-box;
+  }
 
   body {
     font-family: 'Inter', sans-serif;

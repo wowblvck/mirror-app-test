@@ -36,7 +36,7 @@ const columns: ColumnsType<User> = [
 ];
 
 const UsersListContainer = styled.div({
-  margin: '5px auto 30px',
+  padding: '5px 0 30px',
 });
 
 export const UsersList = () => {
