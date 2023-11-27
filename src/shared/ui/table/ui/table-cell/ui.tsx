@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 import React from 'react';
-import { Column } from '../types';
+import { Column } from '../../types';
 
 interface TableCellProps<T> {
   item: T;

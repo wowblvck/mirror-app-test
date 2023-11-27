@@ -2,14 +2,12 @@ import styled from '@emotion/styled';
 import React from 'react';
 // eslint-disable-next-line @conarti/feature-sliced/absolute-relative
 import { User } from '@/shared/api';
+import { ColumnsType, SelectedRow } from '../../types';
 import { TableRowCell } from '../table-cell';
-import { ColumnKey, ColumnsType, SelectedRow, SortOrder } from '../types';
 
 type TableRowProps<T> = {
   columns: ColumnsType<T>;
   dataSource: T[];
-  sortOrder: SortOrder;
-  sortedColumn: ColumnKey<T> | null;
   selectedRow?: SelectedRow<T>;
 };
 
@@ -26,25 +24,7 @@ const TableRowItem = styled.tr({
   },
 });
 
-export const TableRow: React.FC<TableRowProps<any>> = ({
-  dataSource,
-  columns,
-  sortedColumn,
-  sortOrder,
-  selectedRow,
-}) => {
-  const sortedData = React.useMemo(() => {
-    return dataSource.slice().sort((a, b) => {
-      if (sortedColumn) {
-        const column = columns.find((col) => col.dataIndex === sortedColumn);
-        if (column && column.sorter) {
-          return sortOrder === 'asc' ? column.sorter(a, b) : -column.sorter(a, b);
-        }
-      }
-      return 0;
-    });
-  }, [dataSource, columns, sortedColumn, sortOrder]);
-
+export const TableRow: React.FC<TableRowProps<any>> = ({ dataSource, columns, selectedRow }) => {
   const memoizedSelectedRow = React.useCallback(
     (row: User, rowIndex: number) => {
       if (selectedRow) {
@@ -56,7 +36,7 @@ export const TableRow: React.FC<TableRowProps<any>> = ({
 
   return (
     <>
-      {sortedData.map((row, rowIndex) => (
+      {dataSource.map((row, rowIndex) => (
         <TableRowItem
           key={`table-row-${rowIndex}`}
           onClick={() => memoizedSelectedRow(row, rowIndex)}
