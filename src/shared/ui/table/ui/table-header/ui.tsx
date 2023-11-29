@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
 import { ChevronDown as ChevronDownIcon } from 'lucide-react';
 import React from 'react';
-import { ColumnKey, ColumnsType, SortOrder } from '../types';
+import { ColumnKey, ColumnsType, SortOrder } from '../../types';
 
 type TableHeaderProps<T> = {
   columns: ColumnsType<T>;
@@ -24,11 +24,14 @@ const TableHeaderCell = styled.th({
     transition: 'background-color .2s',
   },
   '&:first-of-type': {
-    borderTopLeftRadius: 12,
+    borderTopLeftRadius: 6,
   },
   '&:last-of-type': {
-    borderTopRightRadius: 12,
+    borderTopRightRadius: 6,
     border: 'none',
+    '::before': {
+      content: 'none',
+    },
   },
   '::before': {
     position: 'absolute',
@@ -47,11 +50,12 @@ const TableHeaderContent = styled.div({
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'space-between',
+  gap: '10px',
 });
 
 const ChevronDown = styled(ChevronDownIcon)`
-  width: 14px;
-  height: 14px;
+  width: 16px;
+  height: 16px;
 `;
 
 export const TableHeader: React.FC<TableHeaderProps<any>> = ({

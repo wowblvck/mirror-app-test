@@ -1,12 +1,12 @@
-import { createEvent, createStore, sample } from 'effector';
+import { createEvent, restore, sample } from 'effector';
 import { usersModel } from '@/entities/users';
 import { removeSpecialCharacters } from '../lib';
 
 const searchChanged = createEvent<string>();
 
-const $search = createStore('').on(searchChanged, (_, payload) => payload);
+const $search = restore(searchChanged, '');
 
-usersModel.$user.reset(searchChanged);
+usersModel.$user.reset($search);
 
 sample({
   clock: $search,

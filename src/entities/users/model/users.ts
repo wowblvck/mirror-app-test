@@ -9,19 +9,35 @@ const getUsersListFx = createEffect(async () => {
 
 const UsersGate = createGate();
 
-const $users = restore(getUsersListFx.doneData, []);
+const $users = restore(getUsersListFx, []);
 
 const $loading = getUsersListFx.pending;
 
-const $filteredUsers = createStore<User[]>([]).on($users, (_, payload) => payload);
+const $filteredUsers = createStore<User[]>([]);
+
+sample({
+  clock: $users,
+  target: $filteredUsers,
+});
 
 const selectUser = createEvent<User>();
 
 const $user = restore(selectUser, null);
+
+const $actionSelectUser = createStore<boolean>(false).on(selectUser, (state) => !state);
 
 sample({
   clock: UsersGate.open,
   target: getUsersListFx,
 });
 
-export { $users, $loading, $filteredUsers, getUsersListFx, UsersGate, selectUser, $user };
+export {
+  $users,
+  $loading,
+  $filteredUsers,
+  getUsersListFx,
+  UsersGate,
+  selectUser,
+  $actionSelectUser,
+  $user,
+};
