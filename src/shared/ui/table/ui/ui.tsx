@@ -44,7 +44,7 @@ const TableRef = <T,>(
     columns
   );
 
-  if (!dataSource.length && !loading) return <NotFound>Ничего не найдено!</NotFound>;
+  if (!dataSource.length && !loading) return <NotFound>Nothing found!</NotFound>;
 
   if (loading)
     return (

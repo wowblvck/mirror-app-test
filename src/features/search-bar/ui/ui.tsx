@@ -27,8 +27,8 @@ export const SearchBar = () => {
 
   return (
     <form css={style} onSubmit={onSubmit}>
-      <Input ref={inputRef} placeholder="Начните поиск" />
-      <Button>Найти</Button>
+      <Input ref={inputRef} placeholder="Start search (First Name, Last Name, Email, Phone)" />
+      <Button>Find</Button>
     </form>
   );
 };
