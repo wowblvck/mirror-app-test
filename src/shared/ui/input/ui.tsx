@@ -1,5 +1,7 @@
 import styled from '@emotion/styled';
 import React, { HTMLAttributes } from 'react';
+// eslint-disable-next-line @conarti/feature-sliced/absolute-relative
+import { colors } from '@/shared/styles';
 
 const InputComp = styled.input({
   display: 'block',
@@ -12,7 +14,7 @@ const InputComp = styled.input({
   appearance: 'none',
   WebkitAppearance: 'none',
   color: '#99A3BA',
-  border: '1px solid #CDD9ED',
+  border: `1px solid ${colors.border}`,
   background: '#fff',
   transition: 'border .3s ease',
   '::placeholder': {
@@ -20,7 +22,7 @@ const InputComp = styled.input({
   },
   ':focus': {
     outline: 'none',
-    borderColor: '#275EFE',
+    borderColor: `${colors.borderActive}`,
   },
 });
 

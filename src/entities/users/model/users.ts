@@ -24,9 +24,20 @@ const selectUser = createEvent<User>();
 
 const $user = restore(selectUser, null);
 
+const $actionSelectUser = createStore<boolean>(false).on(selectUser, (state) => !state);
+
 sample({
   clock: UsersGate.open,
   target: getUsersListFx,
 });
 
-export { $users, $loading, $filteredUsers, getUsersListFx, UsersGate, selectUser, $user };
+export {
+  $users,
+  $loading,
+  $filteredUsers,
+  getUsersListFx,
+  UsersGate,
+  selectUser,
+  $actionSelectUser,
+  $user,
+};

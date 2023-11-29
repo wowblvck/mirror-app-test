@@ -1,5 +1,7 @@
 import styled from '@emotion/styled';
 import React, { HTMLAttributes } from 'react';
+// eslint-disable-next-line @conarti/feature-sliced/absolute-relative
+import { colors } from '@/shared/styles';
 
 const ButtonComp = styled.button({
   width: '100%',
@@ -8,7 +10,7 @@ const ButtonComp = styled.button({
   appearance: 'none',
   WebkitAppearance: 'none',
   backgroundColor: '#fff',
-  border: '1px solid #dbdbdb',
+  border: `1px solid ${colors.border}`,
   borderRadius: '6px',
   boxShadow: 'none',
   color: '#363636',
@@ -22,7 +24,7 @@ const ButtonComp = styled.button({
   whiteSpace: 'nowrap',
   transition: 'border .3s ease',
   ':hover': {
-    borderColor: '#275EFE',
+    borderColor: `${colors.borderActive}`,
   },
 });
 

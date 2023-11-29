@@ -6,7 +6,7 @@ const searchChanged = createEvent<string>();
 
 const $search = restore(searchChanged, '');
 
-usersModel.$user.reset(searchChanged);
+usersModel.$user.reset($search);
 
 sample({
   clock: $search,
